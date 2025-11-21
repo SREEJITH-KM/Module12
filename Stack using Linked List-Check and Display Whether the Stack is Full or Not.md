@@ -1,36 +1,80 @@
-# # 📚 Stack using Linked List: Check and Display Whether the Stack is Full or Not
+# Ex.No 12.a Stack Using Linked List in Python
 
-This Python program demonstrates how to check if a stack (using `LifoQueue` from the `queue` module) is full or not. It uses the `full()` method to determine the stack's status and then displays the appropriate message.
+This project demonstrates a basic stack implementation in Python using list methods to mimic linked list behavior. It includes stack operations like **push**, **display**, **peek**, and **pop**.
 
-## 🎯 Aim
+## AIM
 
-To write a Python program that:
-- Creates a stack with a fixed size.
-- Adds elements to the stack.
-- Checks if the stack is full.
-- Displays a message indicating whether the stack is full or not.
+To write a Python program to type and display the elements pushed into a stack using a linked list approach.
 
-## 🧠 Algorithm
+## ALGORITHM
 
-1. **Import the LifoQueue class**:
-   - Import `LifoQueue` from the `queue` module to create the stack.
+1. Start  
+2. Create a stack  
+3. Append (push) elements to the stack  
+4. Print (display) the elements of the stack  
+5. Stop
 
-2. **Create a Stack**:
-   - Instantiate a `LifoQueue` with a maximum size (e.g., 4).
+## PROGRAM
 
-3. **Add Elements to the Stack**:
-   - Add elements (e.g., 'a', 'b', and 'c') to the stack using the `put()` method.
+```
+reg no:212223070004
+name:dhushanth.km
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
-4. **Check if the Stack is Full**:
-   - Use the `full()` method of `LifoQueue` to check if the stack has reached its maximum capacity.
+class Stack:
+    def __init__(self):
+        self.top = None
+    
+    def push(self, data):
+        new_node = Node(data)
+        new_node.next = self.top
+        self.top = new_node
+    
+    def pop(self):
+        if self.is_empty():
+            print("Stack is empty!")
+            return None
+        popped = self.top
+        self.top = self.top.next
+        return popped.data
+    
+    def peek(self):
+        if self.is_empty():
+            print("Stack is empty!")
+            return None
+        return self.top.data
+    
+    def is_empty(self):
+        return self.top is None
+    
+    def display(self):
+        current = self.top
+        if not current:
+            print("Stack is empty")
+            return
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")
 
-5. **Display the Status**:
-   - Print "Stack is full" if the stack is full.
-   - Otherwise, print "Stack is not full".
+if __name__ == "__main__":
+    stack = Stack()
+    
+    n = int(input("Enter number of elements to push into the stack: "))
+    
+    for i in range(n):
+        val = int(input(f"Enter value {i+1}: "))
+        stack.push(val)
+    
+    print("Stack elements:")
+    stack.display()
 
-## 📝 Program
-Add Code here
+```
+## OUTPUT
+![image](https://github.com/user-attachments/assets/ba733070-c7b3-4d71-9638-21314da2a3ef)
 
-## Sample Input & Output
-
-## Result
+## RESULT
+thus the program is executed successfully.
